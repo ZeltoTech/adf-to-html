@@ -1,0 +1,20 @@
+{
+  "name": "zeltotech/adf-to-html",
+  "description": "Convert atlassian document format to html",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "Zeltotech\\AdfToHtml\\": "src"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jeroen el Hahaoui",
+      "email": "jeroen@micro-it.nl"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "lesstif/jira-cloud-restapi": "^1.0"
+  }
+}
