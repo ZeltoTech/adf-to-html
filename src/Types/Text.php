@@ -32,11 +32,12 @@ class Text
         }
 
         $outputBuffer .= $block->text;
+
         foreach (array_reverse($block->marks, true) as $mark) {
             if ($mark->type === 'link') {
                 $outputBuffer .= "</a>";
             } else {
-                $outputBuffer .= "<" . $mark->type . ">";
+                $outputBuffer .= "</" . $mark->type . ">";
             }
         }
 
