@@ -1,7 +1,10 @@
 {
   "name": "zeltotech/adf-to-html",
   "description": "Convert atlassian document format to html",
-  "version": "1.0.1",
+  "minimum-stability": "stable",
+  "license": [
+    "MIT"
+  ],
   "autoload": {
     "psr-4": {
       "Zeltotech\\AdfToHtml\\": "src"

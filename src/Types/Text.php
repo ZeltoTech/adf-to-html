@@ -26,6 +26,8 @@ class Text
         foreach ($block->marks as $mark) {
             if ($mark->type === 'link') {
                 $outputBuffer .= "<a target='_blank' href='".$mark->attrs->href."'>";
+            } elseif ($mark->type === 'underline') {
+                $outputBuffer .= "<u>";
             } else {
                 $outputBuffer .= "<" . $mark->type . ">";
             }
@@ -36,6 +38,8 @@ class Text
         foreach (array_reverse($block->marks, true) as $mark) {
             if ($mark->type === 'link') {
                 $outputBuffer .= "</a>";
+            } elseif ($mark->type === 'underline') {
+                $outputBuffer .= "</u>";
             } else {
                 $outputBuffer .= "</" . $mark->type . ">";
             }
