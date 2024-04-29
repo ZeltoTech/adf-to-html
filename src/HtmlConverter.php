@@ -95,13 +95,29 @@ class HtmlConverter
         ];
     }
 
-    private function convertListItem($node)
-    {
-        $content = $this->getNodeContent($node);
+    private function convertListItem($node) {
+        $paragraphContent = [];
+        $this->convertNodeChildren($node, $paragraphContent);
+
         return [
             "type" => "listItem",
-            "content" => [$content]
+            "content" => [
+                [
+                    "type" => "paragraph",
+                    "content" => $paragraphContent
+                ]
+            ]
         ];
+    }
+
+    private function convertNodeChildren($node, &$content) {
+        foreach ($node->childNodes as $child) {
+            if ($child->nodeType === XML_TEXT_NODE && trim($child->nodeValue) !== '') {
+                $content[] = ["type" => "text", "text" => trim($child->nodeValue)];
+            } elseif ($child->nodeType === XML_ELEMENT_NODE) {
+                $this->processNode($child, $content);
+            }
+        }
     }
 
     private function convertLink($node)
