@@ -13,9 +13,11 @@ class Heading
     public function toHtml()
     {
         $outputBuffer = "<h".$this->block->attrs->level.">";
-        foreach ($this->block->content as $content) {
-            if ($content->type === 'text') {
-                $outputBuffer .= $content->text;
+        if (isset($this->block->content)) {
+            foreach ($this->block->content as $content) {
+                if ($content->type === 'text') {
+                    $outputBuffer .= $content->text;
+                }
             }
         }
         $outputBuffer .= "</h".$this->block->attrs->level.">";
