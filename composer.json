@@ -18,6 +18,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "lesstif/jira-cloud-restapi": "^1.0"
+    "lesstif/jira-cloud-restapi": "^1.0",
+    "ext-dom": "*"
   }
 }
